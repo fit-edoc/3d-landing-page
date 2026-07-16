@@ -7,8 +7,7 @@ import Menu from "../icons/Menu";
 import { FaCross } from "react-icons/fa";
 import { AnimatePresence, motion } from "motion/react";
 
-const Nav = () => {
-    const menuVariants = {
+const menuVariants = {
   hidden: {
     height: 0,
     opacity:0,
@@ -28,7 +27,7 @@ const Nav = () => {
       staggerChildren: 0.08,
     },
   },
-};
+} as const;
 
 const itemVariants = {
   hidden: {
@@ -43,17 +42,18 @@ const itemVariants = {
       ease: "easeOut",
     },
   },
-};
+} as const;
 
+const Nav = () => {
     const [toggle,setToggle] = useState(false)
   const navitem = [
-    { name: "shop +" },
-    { name: "about" },
-    { name: "blog" },
-    { name: "contact" },
+    { name: "shop +", href: "#" },
+    { name: "about", href: "#" },
+    { name: "blog", href: "#" },
+    { name: "contact", href: "#" },
   ];
 
-  const handlechange : any = useCallback(
+  const handlechange = useCallback(
     () => {
       setToggle((prev)=>!prev)
     },
